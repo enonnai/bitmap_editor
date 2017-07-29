@@ -7,12 +7,50 @@ class Bitmap
   end
 
   def create_table
-      @table << "O" * @parameters[1]
-      @table << "O" * @parameters[2] unless @parameters[2] == 1
+      @parameters[2].times do
+        @table << "O" * @parameters[1]
+      end
   end
 
   def color_pixels(coordinates_and_colour)
     @table[coordinates_and_colour[2]-1][coordinates_and_colour[1]-1] = coordinates_and_colour[3]
+  end
+
+  def draw_vertical_seg(vertical_seg_params)
+    colour = vertical_seg_params[4]
+    start = vertical_seg_params[2]
+    finish = vertical_seg_params[3]
+    column = vertical_seg_params[1]
+
+    i = start
+    while i <= finish
+      @table[i-1][column-1] = colour
+      i += 1
+    end
+  end
+
+  def draw_horizontal_seg(horizontal_seg_params)
+    colour = horizontal_seg_params[4]
+    start = horizontal_seg_params[1]
+    finish = horizontal_seg_params[2]
+    row = horizontal_seg_params[3]
+
+    i = start
+    while i <= finish
+      @table[row-1][i-1] = colour
+      i += 1
+    end
+  end
+
+  def clear_table
+    @table.clear
+    @parameters[2].times do
+      @table << "O" * @parameters[1]
+    end
+  end
+
+  def show
+    table
   end
 
 end
