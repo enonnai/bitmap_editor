@@ -7,20 +7,20 @@ class Bitmap
   end
 
   def create_table
-      @parameters[2].times do
-        @table << "O" * @parameters[1]
+      @parameters[1].times do
+        @table << "O" * @parameters[0]
       end
   end
 
   def color_pixels(coordinates_and_colour)
-    @table[coordinates_and_colour[2]-1][coordinates_and_colour[1]-1] = coordinates_and_colour[3]
+    @table[coordinates_and_colour[1]-1][coordinates_and_colour[0]-1] = coordinates_and_colour[2]
   end
 
   def draw_vertical_seg(vertical_seg_params)
-    colour = vertical_seg_params[4]
-    start = vertical_seg_params[2]
-    finish = vertical_seg_params[3]
-    column = vertical_seg_params[1]
+    colour = vertical_seg_params[3]
+    start = vertical_seg_params[1]
+    finish = vertical_seg_params[2]
+    column = vertical_seg_params[0]
 
     i = start
     while i <= finish
@@ -30,10 +30,10 @@ class Bitmap
   end
 
   def draw_horizontal_seg(horizontal_seg_params)
-    colour = horizontal_seg_params[4]
-    start = horizontal_seg_params[1]
-    finish = horizontal_seg_params[2]
-    row = horizontal_seg_params[3]
+    colour = horizontal_seg_params[3]
+    start = horizontal_seg_params[0]
+    finish = horizontal_seg_params[1]
+    row = horizontal_seg_params[2]
 
     i = start
     while i <= finish
@@ -44,8 +44,8 @@ class Bitmap
 
   def clear_table
     @table.clear
-    @parameters[2].times do
-      @table << "O" * @parameters[1]
+    @parameters[1].times do
+      @table << "O" * @parameters[0]
     end
   end
 
