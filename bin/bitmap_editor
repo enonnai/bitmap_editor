@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require './bitmap_editor'
 
-BitmapEditor.new.run ARGV.first
+puts BitmapEditor.new.run ARGV.first

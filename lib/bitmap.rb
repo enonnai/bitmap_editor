@@ -50,7 +50,7 @@ class Bitmap
   end
 
   def show
-    table
+    @table
   end
 
 end
