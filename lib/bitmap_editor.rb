@@ -1,9 +1,9 @@
-require_relative './lib/bitmap.rb'
+require_relative './bitmap.rb'
 
 class BitmapEditor
 
   def run(file)
-    return puts "please provide correct file" if file.nil? || !File.exists?(file)
+    return "please provide correct file" if file.nil? || !File.exists?(file)
 
     bitmap = nil
 
@@ -38,10 +38,10 @@ class BitmapEditor
         if bitmap
           return bitmap.show
         else
-          'There is no image to show'
+          return 'There is no image to show'
         end
       else
-        'unrecognised command :('
+        return 'unrecognised command :('
       end
     end
   end

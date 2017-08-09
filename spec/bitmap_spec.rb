@@ -36,7 +36,6 @@ describe Bitmap do
       params = [5, 6]
       subject = Bitmap.new(params)
       subject.create_table
-      p subject.table
       vertical_seg_params = [2, 3, 6, "B"]
       subject.draw_vertical_seg(vertical_seg_params)
       expect(subject.table).to eq ["OOOOO","OOOOO", "OBOOO","OBOOO", "OBOOO", "OBOOO"]
@@ -48,7 +47,6 @@ describe Bitmap do
       params = [5, 6]
       subject = Bitmap.new(params)
       subject.create_table
-      p subject.table
       horizontal_seg_params = [3, 5, 2, "C"]
       subject.draw_horizontal_seg(horizontal_seg_params)
       expect(subject.table).to eq ["OOOOO","OOCCC", "OOOOO","OOOOO", "OOOOO", "OOOOO"]
@@ -62,7 +60,6 @@ describe Bitmap do
       subject.create_table
       horizontal_seg_params = [3, 5, 2, "C"]
       subject.draw_horizontal_seg(horizontal_seg_params)
-      p subject.table
       subject.clear_table
       expect(subject.table).to eq ["OOOOO","OOOOO", "OOOOO","OOOOO", "OOOOO", "OOOOO"]
     end
